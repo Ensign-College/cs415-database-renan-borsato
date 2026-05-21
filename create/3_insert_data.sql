@@ -1,49 +1,49 @@
 \c cs415
 
--- web_user
-INSERT INTO web_user(web_user_id, first_name, last_name, email, password, created_date, is_active, last_login)
+-- WebUser
+INSERT INTO WebUser(web_user_id, first_name, last_name, email, password, created_date, is_active, last_login)
 VALUES
     (1, 'Main', 'User', 'muser@email.com', '12345', CURRENT_TIMESTAMP, TRUE, CURRENT_TIMESTAMP),
     (2, 'Willie', 'Nelson', 'willie.nelson@email.com', '12345', CURRENT_TIMESTAMP, TRUE, CURRENT_TIMESTAMP);
-ALTER SEQUENCE web_user_web_user_id_seq RESTART WITH 100;
+ALTER SEQUENCE WebUser_web_user_id_seq RESTART WITH 100;
 
--- address_type
-INSERT INTO address_type(address_type_id, address_type)
+-- AddressType
+INSERT INTO AddressType(address_type_id, address_type)
 VALUES
     (1, 'Home'),
     (2, 'Work'),
     (3, 'Billing'),
     (4, 'Shipping');
-ALTER SEQUENCE address_type_address_type_id_seq RESTART WITH 6;
+ALTER SEQUENCE AddressType_address_type_id_seq RESTART WITH 6;
 
--- user_address
-INSERT INTO user_address(user_address_id, web_user_id, street_1, street_2, city, st, zip, country, address_type_id, created_date)
+-- UserAddress
+INSERT INTO UserAddress(user_address_id, web_user_id, street_1, street_2, city, st, zip, country, address_type_id, created_date)
 VALUES
     (1, 1, '100 Fake St', '', 'Fake City', 'UT', '84032', 'United States', 1, CURRENT_TIMESTAMP),
     (2, 1, '200 Fake Ave', '', 'Faker City', 'UT', '84033', 'United States', 3, CURRENT_TIMESTAMP),
     (3, 2, '200 Fake Ave', '', 'Fakie City', 'UT', '84033', 'United States', 1, CURRENT_TIMESTAMP);
-ALTER SEQUENCE user_address_user_address_id_seq RESTART WITH 4;
+ALTER SEQUENCE UserAddress_user_address_id_seq RESTART WITH 4;
 
--- phone_type
-INSERT INTO phone_type(phone_type_id, phone_type)
+-- PhoneType
+INSERT INTO PhoneType(phone_type_id, phone_type)
 VALUES
     (1, 'Mobile'),
     (2, 'Home'),
     (3, 'Work'),
     (4, 'Emergency');
-ALTER SEQUENCE phone_type_phone_type_id_seq RESTART WITH 6;
+ALTER SEQUENCE PhoneType_phone_type_id_seq RESTART WITH 6;
 
--- user_phone
-INSERT INTO user_phone(user_phone_id, web_user_id, phone_number, phone_type_id, created_date)
+-- UserPhone
+INSERT INTO UserPhone(user_phone_id, web_user_id, phone_number, phone_type_id, created_date)
 VALUES
     (1, 1, '801-555-1111', 1, CURRENT_TIMESTAMP),
     (2, 1, '801-555-1112', 2, CURRENT_TIMESTAMP),
     (3, 2, '801-555-2221', 1, CURRENT_TIMESTAMP),
     (4, 2, '801-555-2222', 3, CURRENT_TIMESTAMP);
-ALTER SEQUENCE user_phone_user_phone_id_seq RESTART WITH 6;
+ALTER SEQUENCE UserPhone_user_phone_id_seq RESTART WITH 6;
 
--- user_info
-INSERT INTO user_info(user_info_id, web_user_id, profile_bio, profile_picture, created_date, updated_date)
+-- UserInfo
+INSERT INTO UserInfo(user_info_id, web_user_id, profile_bio, profile_picture, created_date, updated_date)
 VALUES
     (
         1,
@@ -61,10 +61,10 @@ VALUES
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP
     );
-ALTER SEQUENCE user_info_user_info_id_seq RESTART WITH 4;
+ALTER SEQUENCE UserInfo_user_info_id_seq RESTART WITH 4;
 
--- page_data
-INSERT INTO page_data(page_data_id, page_title, page_subtitle, page_content, page_image, page_header)
+-- PageData
+INSERT INTO PageData(page_data_id, page_title, page_subtitle, page_content, page_image, page_header)
 VALUES
     (
         1,
@@ -122,4 +122,4 @@ VALUES
         'https://www.devopsschool.com/blog/wp-content/uploads/2022/03/reactjs-benefits-1024x512.jpg',
         'Week 7 - Front-end and Final'
     );
-ALTER SEQUENCE page_data_page_data_id_seq RESTART WITH 10;
+ALTER SEQUENCE PageData_page_data_id_seq RESTART WITH 10;
