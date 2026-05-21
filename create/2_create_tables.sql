@@ -7,7 +7,7 @@ CREATE TABLE WebUser (
     last_name VARCHAR(30) NOT NULL,
     email VARCHAR(40) UNIQUE NOT NULL,
     password VARCHAR(40) NOT NULL,
-    created_date TIMESTAMP DEFAULT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     is_active BOOLEAN DEFAULT true,
     last_login TIMESTAMP DEFAULT NULL,
     PRIMARY KEY (web_user_id)
@@ -30,7 +30,7 @@ CREATE TABLE UserAddress (
     st VARCHAR(2),
     zip VARCHAR(10),
     country VARCHAR(30),
-    created_date TIMESTAMP,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     address_type_id INT NOT NULL,
     PRIMARY KEY (user_address_id),
     FOREIGN KEY (web_user_id) REFERENCES WebUser(web_user_id)
