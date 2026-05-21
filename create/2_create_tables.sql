@@ -7,7 +7,7 @@ CREATE TABLE WebUser (
     last_name VARCHAR(30) NOT NULL,
     email VARCHAR(40) UNIQUE NOT NULL,
     password VARCHAR(40) NOT NULL,
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_date TIMESTAMP DEFAULT NULL,
     is_active BOOLEAN DEFAULT true,
     last_login TIMESTAMP DEFAULT NULL,
     PRIMARY KEY (web_user_id)
@@ -30,7 +30,7 @@ CREATE TABLE UserAddress (
     st VARCHAR(2),
     zip VARCHAR(10),
     country VARCHAR(30),
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_date TIMESTAMP,
     address_type_id INT NOT NULL,
     PRIMARY KEY (user_address_id),
     FOREIGN KEY (web_user_id) REFERENCES WebUser(web_user_id)
@@ -54,7 +54,7 @@ CREATE TABLE UserPhone (
     web_user_id INT NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
     phone_type_id INT NOT NULL,
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_date TIMESTAMP,
     PRIMARY KEY (user_phone_id),
     FOREIGN KEY (web_user_id) REFERENCES WebUser(web_user_id)
         ON UPDATE CASCADE
@@ -70,8 +70,8 @@ CREATE TABLE UserInfo (
     web_user_id INT NOT NULL,
     profile_bio TEXT,
     profile_picture VARCHAR(255),
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_date TIMESTAMP,
+    updated_date TIMESTAMP,
     PRIMARY KEY (user_info_id),
     FOREIGN KEY (web_user_id) REFERENCES WebUser(web_user_id)
         ON UPDATE CASCADE
