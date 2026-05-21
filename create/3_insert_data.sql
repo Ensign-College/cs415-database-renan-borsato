@@ -32,30 +32,30 @@ VALUES
     (2,'Home'),
     (3,'Work'),
     (4,'Emergency');
-ALTER SEQUENCE PhoneType_phone_type_id_seq RESTART WITH 6;
+ALTER SEQUENCE PhoneType_phone_type_id_seq RESTART WITH 5;
 
 -- UserPhone
-INSERT INTO UserPhone(user_phone_id,web_user_id,phone_number,phone_type_id,created_date)
+INSERT INTO UserPhone(user_phone_id,phone_type_id,web_user_id,phone_number,created_date,is_active)
 VALUES
-    (1,1,'801-555-1111',1,CURRENT_TIMESTAMP),
-    (2,1,'801-555-1112',2,CURRENT_TIMESTAMP),
-    (3,2,'801-555-2221',1,CURRENT_TIMESTAMP),
-    (4,2,'801-555-2222',3,CURRENT_TIMESTAMP);
-ALTER SEQUENCE UserPhone_user_phone_id_seq RESTART WITH 6;
+    (1,1,1,'4564564564',CURRENT_TIMESTAMP,'1'),
+    (2,3,1,'4564564564',CURRENT_TIMESTAMP,'1'),
+    (3,1,2,'4564564564',CURRENT_TIMESTAMP,'1'),
+    (4,2,2,'7897897897',CURRENT_TIMESTAMP,'1');
+ALTER SEQUENCE UserPhone_user_phone_id_seq RESTART WITH 5;
 
 -- UserInfo
-INSERT INTO UserInfo(user_info_id,web_user_id,profile_bio,profile_picture,created_date,updated_date)
+INSERT INTO UserInfo(user_info_id,web_user_id,profile_bio,profile_picture,modified_date,created_date)
 VALUES
-    (1,1,'Enjoys web development and cloud computing.',
+    (1,1,'Computer Geek',
      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYZ4AiSTOD6IbZ-zuTTghcjbMr15XMj1XSQ&s',
      CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
-    (2,2,'Musician and technology enthusiast.',
+    (2,2,'Computer Geek',
      'https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/b4/c2/9a/b4c29a1e-3b45-2b60-be65-dbb96d21e42a/mza_1383128222591135178.png/375x375bb.jpg',
      CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-ALTER SEQUENCE UserInfo_user_info_id_seq RESTART WITH 4;
+ALTER SEQUENCE UserInfo_user_info_id_seq RESTART WITH 3;
 
 -- PageData
-INSERT INTO PageData(page_data_id,page_title,page_subtitle,page_content,page_image,page_header)
+INSERT INTO PageData(page_data_id,page_name,page_title,page_description,page_picture,page_menu)
 VALUES
     (1,'Week 1','Overview and Setup','Create the GitHub repositories.  Discuss AWS Academy, databases, containers, schemas.  Docker Compose Assignment',
      'https://yt3.googleusercontent.com/vtckU0sW8j7MgqC6SnO4Ed3yaG0t-fFwhUEir-9SMTOuYBIXPkfSx3fzD3YrwUj8PI46fw1Le9o=s160-c-k-c0x00ffffff-no-rj',
@@ -78,4 +78,4 @@ VALUES
     (7,'Week 7','Bringing it all Together - Front-end and Final','Attach the front-end (website) to the API and deploy it to AWS S3.  Summary of all activities in the class - instructions for Final.',
      'https://www.devopsschool.com/blog/wp-content/uploads/2022/03/reactjs-benefits-1024x512.jpg',
      'Week 7 - Front-end and Final');
-ALTER SEQUENCE PageData_page_data_id_seq RESTART WITH 10;
+ALTER SEQUENCE PageData_page_data_id_seq RESTART WITH 8;
