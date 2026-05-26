@@ -18,7 +18,7 @@ VALUES
 ALTER SEQUENCE AddressType_address_type_id_seq RESTART WITH 6;
 
 -- UserAddress
-INSERT INTO UserAddress(user_address_id,web_user_id,street_1,street_2,city,st,zip,country,address_type_id,created_date)
+INSERT INTO UserAddress(user_address_id,web_user_id,street_1,street_2,city,state,zip,country,address_type_id,created_date)
 VALUES
     (1,1,'100 Fake St','','Fake City','UT','84032','United States',1,CURRENT_TIMESTAMP),
     (2,1,'200 Fake Ave','','Faker City','UT','84033','United States',3,CURRENT_TIMESTAMP),
